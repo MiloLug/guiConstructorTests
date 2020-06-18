@@ -217,6 +217,8 @@ namespace GUI {
 				endZ, endX, endY, endW, endH;
 			Window::list_elementsSet_t* eList;
 
+			int tmpw, tmph;
+
 			endZ = this->coordList.rend();
 			for (itZ = this->coordList.rbegin(); itZ != endZ; ++itZ) {
 				xList = (list_coordMap_t*)itZ->second;
@@ -224,21 +226,19 @@ namespace GUI {
 				for (itX = xList->rbegin(); itX != endX; ++itX) {
 					if (itX->first > x)
 						continue;
+					tmpw = x - itX->first;
 					yList = (list_coordMap_t*)itX->second;
 					endY = yList->rend();
 					for (itY = yList->rbegin(); itY != endY; ++itY) {
 						if (itY->first > y)
 							continue;
+						tmph = y - itY->first;
 						wList = (list_coordMap_t*)itY->second;
 						endW = wList->rend();
-						for (itW = wList->rbegin(); itW != endW; ++itW) {
-							if (itW->first < (x - itX->first))
-								break;
+						for (itW = wList->rbegin(); itW != endW && !(itW->first < tmpw); ++itW) {
 							hList = (list_coordMap_t*)itW->second;
 							endH = hList->rend();
-							for (itH = hList->rbegin(); itH != endH; ++itH) {
-								if (itH->first < (y - itY->first))
-									break;
+							for (itH = hList->rbegin(); itH != endH && !(itH->first < tmph); ++itH) {
 								eList = (list_elementsSet_t*)itH->second;
 								if (!eList->empty()) {
 									return *eList->begin();

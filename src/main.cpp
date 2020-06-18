@@ -419,6 +419,11 @@ int main() {
 
 		GUI::Elements::Element* t = new GUI::Elements::Element;
 		w->addElement(t);
+		w->moveInCoordList(
+			0, 0, 0, 0, 0, 
+			1 * i, 2 * i, 3 * i, 1, 1,
+			t
+		);
 
 		auto tp2 = std::chrono::system_clock::now();
 		tt += std::chrono::duration_cast<std::chrono::milliseconds>(tp2 - tp1).count();
@@ -442,8 +447,7 @@ int main() {
 		tt += std::chrono::duration_cast<std::chrono::milliseconds>(tp2 - tp1).count();
 	}
 
-	tt /= 100;
-	std::cout << std::endl << tt;
+	std::cout << std::endl << (float)tt/100000.;
 	
 
 	//GUI::StyleSetStateMixer* tmp = GUI::StylesStorage::stateMixer(".kek");
