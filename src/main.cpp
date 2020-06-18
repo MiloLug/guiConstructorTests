@@ -409,11 +409,7 @@ int main() {
 
 	GUI::Elements::Window *w = new GUI::Elements::Window;
 
-	GUI::Elements::Element* t = new GUI::Elements::Element;
 
-	w->addElement(t);
-
-	std::cout << w->elements.size();
 
 	time_t tt = 0;
 
@@ -421,18 +417,34 @@ int main() {
 		int32_t tmpi = 0;
 		auto tp1 = std::chrono::system_clock::now();
 
+		GUI::Elements::Element* t = new GUI::Elements::Element;
+		w->addElement(t);
+
+		auto tp2 = std::chrono::system_clock::now();
+		tt += std::chrono::duration_cast<std::chrono::milliseconds>(tp2 - tp1).count();
+	}
+
+	tt /= 100;
+	std::cout << std::endl << tt;
+
+	std::cout << std::endl << w->elements.size();
+	
+	tt = 0;
+	for (int i = 0; i < 100; i++) {
+		int32_t tmpi = 0;
+		auto tp1 = std::chrono::system_clock::now();
+
 		for (; tmpi < 1000; tmpi++)
-			w->findInCoordList(0, 0);
+			w->findInCoordList(0, 1);
 
 		auto tp2 = std::chrono::system_clock::now();
 
 		tt += std::chrono::duration_cast<std::chrono::milliseconds>(tp2 - tp1).count();
 	}
 
-	tt /= 100*1000;
-
-	std::cout << tt;
-	std::cout<< (w->findInCoordList(0, 0) == nullptr);
+	tt /= 100;
+	std::cout << std::endl << tt;
+	
 
 	//GUI::StyleSetStateMixer* tmp = GUI::StylesStorage::stateMixer(".kek");
 
