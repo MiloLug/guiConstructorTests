@@ -148,6 +148,7 @@
     <ClCompile Include="src\GUIGL\Elements\ElementContainer.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\GUIGL\Elements\Window.cpp" />
+    <ClCompile Include="src\GUIGL\Style.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\GUIGL\common.h" />
@@ -155,6 +156,7 @@
     <ClInclude Include="src\GUIGL\Elements\Element.h" />
     <ClInclude Include="src\GUIGL\Elements\ElementContainer.h" />
     <ClInclude Include="src\GUIGL\Elements\Window.h" />
+    <ClInclude Include="src\GUIGL\Style.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
