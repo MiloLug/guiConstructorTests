@@ -99,6 +99,21 @@ int main() {
 	std::cout << "left: " << tmp->left(stateMap) << std::endl;
 	std::cout << "zIndex: " << tmp->zIndex(stateMap) << std::endl;
 
+	/*time_t tt = 0;
+
+	for (int i = 0; i < 100; i++) {
+		int32_t tmpi = 0;
+		auto tp1 = std::chrono::system_clock::now();
+
+		for (int s = 0; s < 1000; s++)
+			tmp->width(stateMap);
+
+		auto tp2 = std::chrono::system_clock::now();
+		tt += std::chrono::duration_cast<std::chrono::milliseconds>(tp2 - tp1).count();
+	}
+
+	tt /= 100;
+	std::cout << std::endl << tt;*/
 
 
 	/*GUI::Elements::Window *w = new GUI::Elements::Window;
