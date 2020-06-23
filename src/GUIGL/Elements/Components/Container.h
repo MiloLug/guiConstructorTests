@@ -3,9 +3,9 @@
 
 #define __ELEMENTS_CONTAINER
 
-#include "../common.h"
+#include "../../common.h"
 #include <vector>
-#include "Element.h"
+#include "../Element.h"
 #include <unordered_set>
 
 namespace GUI {
@@ -13,17 +13,17 @@ namespace GUI {
 		class Container
 		{
 		public:
-//base type info =========================
+			//base type info =========================
 			static const std::type_info* __base_type;
 			virtual const std::type_info* __current_type();
 
-//data =========================
+			//data =========================
 			std::unordered_set<Element*> elements;
 
-//constructor =========================
+			//constructor =========================
 			Container();
 
-//some methods =========================
+			//some methods =========================
 			virtual Container* linkElement(Element* elem);
 			virtual Container* unlinkElement(Element* elem);
 			virtual Container* unlinkAll();

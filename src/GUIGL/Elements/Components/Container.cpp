@@ -2,19 +2,19 @@
 
 namespace GUI {
 	namespace Elements {
-//base type info =========================
+		//base type info =========================
 		const std::type_info* Container::__base_type = &typeid(Container);
 		const std::type_info* Container::__current_type() {
 			return &typeid(Container);
 		}
-//data =========================
+		//data =========================
 
-//constructor =========================
+		//constructor =========================
 		Container::Container() {
-			
+
 		}
 
-//some methods =========================
+		//some methods =========================
 		Container* Container::linkElement(Element* elem) {
 			elem->__linkContainer(this);
 			this->elements.insert(elem);

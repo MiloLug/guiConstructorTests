@@ -4,8 +4,8 @@
 //#include "../Draw.h"
 #include "Window.h"
 //#include "ElementsStore.h"
-//#include "Style.h"
-#include "Container.h"
+//#include "Components/Style.h"
+#include "Components/Container.h"
 
 namespace GUI {
 	namespace Elements {
@@ -55,7 +55,7 @@ namespace GUI {
 		}
 		//constructor =========================
 		Element::Element() {
-			//this->style = new Style(this);
+
 		}
 
 		//some methods =========================
@@ -175,7 +175,7 @@ namespace GUI {
 			delete this;
 		}
 		Element::~Element() {
-			//delete this->style;
+
 		}
 	}
 }

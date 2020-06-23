@@ -1,6 +1,6 @@
 #pragma once
 #include <unordered_map>
-#include "common.h"
+#include "../../common.h"
 
 #define STYLE_plain 0
 #define STYLE_hover 1
@@ -31,19 +31,19 @@ namespace GUI {
 			bool _zIndexSet = false;
 
 			virtual  int width();
-			 StyleSet* width(int t);
+			StyleSet* width(int t);
 
 			virtual  int height();
-			 StyleSet* height(int t);
+			StyleSet* height(int t);
 
 			virtual  int left();
-			 StyleSet* left(int t);
+			StyleSet* left(int t);
 
 			virtual  int top();
-			 StyleSet* top(int t);
+			StyleSet* top(int t);
 
 			virtual  int zIndex();
-			 StyleSet* zIndex(int t);
+			StyleSet* zIndex(int t);
 		};
 
 		class StyleSetStateMixer : public StyleSet {
@@ -54,19 +54,19 @@ namespace GUI {
 			virtual ~StyleSetStateMixer();
 
 			virtual  int width(bool* interactState);
-			 bool widthSet(bool* interactState);
+			bool widthSet(bool* interactState);
 
 			virtual  int height(bool* interactState);
-			 bool heightSet(bool* interactState);
+			bool heightSet(bool* interactState);
 
 			virtual  int left(bool* interactState);
-			 bool leftSet(bool* interactState);
+			bool leftSet(bool* interactState);
 
 			virtual  int top(bool* interactState);
-			 bool topSet(bool* interactState);
+			bool topSet(bool* interactState);
 
 			virtual  int zIndex(bool* interactState);
-			 bool zIndexSet(bool* interactState);
+			bool zIndexSet(bool* interactState);
 		};
 
 		class StyleSetAspectMixer : public StyleSet {

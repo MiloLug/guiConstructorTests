@@ -143,20 +143,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\GUIGL\common.cpp" />
-    <ClCompile Include="src\GUIGL\Elements\Container.cpp" />
+    <ClCompile Include="src\GUIGL\Elements\Components\Container.cpp" />
     <ClCompile Include="src\GUIGL\Elements\Element.cpp" />
     <ClCompile Include="src\GUIGL\Elements\ElementContainer.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\GUIGL\Elements\Window.cpp" />
-    <ClCompile Include="src\GUIGL\Style.cpp" />
+    <ClCompile Include="src\GUIGL\Elements\Components\Style.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\GUIGL\common.h" />
-    <ClInclude Include="src\GUIGL\Elements\Container.h" />
+    <ClInclude Include="src\GUIGL\Elements\Components\Container.h" />
     <ClInclude Include="src\GUIGL\Elements\Element.h" />
     <ClInclude Include="src\GUIGL\Elements\ElementContainer.h" />
     <ClInclude Include="src\GUIGL\Elements\Window.h" />
-    <ClInclude Include="src\GUIGL\Style.h" />
+    <ClInclude Include="src\GUIGL\Elements\Components\Style.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
