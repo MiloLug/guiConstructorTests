@@ -11,6 +11,7 @@
     <ClCompile Include="src\GUIGL\Components\Style\StyleSetStateMixer.cpp" />
     <ClCompile Include="src\GUIGL\Components\Style\StyleSetAspectMixer.cpp" />
     <ClCompile Include="src\GUIGL\Components\Style\StyleStorage.cpp" />
+    <ClCompile Include="src\GUIGL\Components\Style\StyleSetElement.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\GUIGL\Elements\Element.h" />
@@ -23,5 +24,6 @@
     <ClInclude Include="src\GUIGL\Components\Style\StyleSetAspectMixer.h" />
     <ClInclude Include="src\GUIGL\Components\Style\constants.h" />
     <ClInclude Include="src\GUIGL\Components\Style\StyleStorage.h" />
+    <ClInclude Include="src\GUIGL\Components\Style\StyleSetElement.h" />
   </ItemGroup>
 </Project>
