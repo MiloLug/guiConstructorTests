@@ -6,15 +6,22 @@
     <ClCompile Include="src\GUIGL\common.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\GUIGL\Elements\Window.cpp" />
-    <ClCompile Include="src\GUIGL\Elements\Components\Style.cpp" />
-    <ClCompile Include="src\GUIGL\Elements\Components\Container.cpp" />
+    <ClCompile Include="src\GUIGL\Components\Container.cpp" />
+    <ClCompile Include="src\GUIGL\Components\Style\StyleSet.cpp" />
+    <ClCompile Include="src\GUIGL\Components\Style\StyleSetStateMixer.cpp" />
+    <ClCompile Include="src\GUIGL\Components\Style\StyleSetAspectMixer.cpp" />
+    <ClCompile Include="src\GUIGL\Components\Style\StyleStorage.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\GUIGL\Elements\Element.h" />
     <ClInclude Include="src\GUIGL\Elements\ElementContainer.h" />
     <ClInclude Include="src\GUIGL\common.h" />
     <ClInclude Include="src\GUIGL\Elements\Window.h" />
-    <ClInclude Include="src\GUIGL\Elements\Components\Style.h" />
-    <ClInclude Include="src\GUIGL\Elements\Components\Container.h" />
+    <ClInclude Include="src\GUIGL\Components\Container.h" />
+    <ClInclude Include="src\GUIGL\Components\Style\StyleSet.h" />
+    <ClInclude Include="src\GUIGL\Components\Style\StyleSetStateMixer.h" />
+    <ClInclude Include="src\GUIGL\Components\Style\StyleSetAspectMixer.h" />
+    <ClInclude Include="src\GUIGL\Components\Style\constants.h" />
+    <ClInclude Include="src\GUIGL\Components\Style\StyleStorage.h" />
   </ItemGroup>
 </Project>

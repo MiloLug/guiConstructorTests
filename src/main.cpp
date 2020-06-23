@@ -1,10 +1,10 @@
 #include <iostream>
-#include "GUIGL/Elements/Components/Container.h"
+#include "GUIGL/Components/Container.h"
 #include "GUIGL/Elements/Element.h"
 #include "GUIGL/Elements/ElementContainer.h"
 #include "GUIGL/Elements/Window.h"
 
-#include "GUIGL/Elements/Components/Style.h"
+#include "GUIGL/Components/Style/StyleStorage.h"
 
 #include <string>
 #include <map>

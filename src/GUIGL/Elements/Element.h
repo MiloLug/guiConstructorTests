@@ -11,8 +11,8 @@
 #include <unordered_set>
 
 namespace GUI {
+	class Container;
 	namespace Elements {
-		class Container;
 		class Window;
 
 		class Element

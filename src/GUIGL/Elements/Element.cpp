@@ -5,7 +5,7 @@
 #include "Window.h"
 //#include "ElementsStore.h"
 //#include "Components/Style.h"
-#include "Components/Container.h"
+#include "../Components/Container.h"
 
 namespace GUI {
 	namespace Elements {
