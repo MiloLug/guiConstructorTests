@@ -14,6 +14,14 @@
 
 #include <Math.h>
 
+#include <thread>
+
+#include "GUIGL/Components/Event/DataPack.h"
+
+#include "GUIGL/Components/Event/ThreadLoops.h"
+
+#include <string>
+
 
 /*
 .kek{
@@ -98,6 +106,84 @@ int main() {
 	std::cout << "height: " << tmp->height(stateMap) << std::endl;
 	std::cout << "left: " << tmp->left(stateMap) << std::endl;
 	std::cout << "zIndex: " << tmp->zIndex(stateMap) << std::endl;
+
+	{
+		using namespace GUI;
+		using namespace Event;
+
+		ThreadLoops::init();
+		defaultListenerFn_t t = [&t](DataPack* d) {
+			int tmp = ((DataPackCast<int>*)d)->data;
+			if (tmp == 3000) {
+				ThreadLoops::terminate();
+				return;
+			}
+
+			std::cout << tmp << std::endl;
+
+			ThreadLoops::addExecutable(new DataPackCast<int>(tmp+1), t);
+		};
+
+		ThreadLoops::addExecutable(new DataPackCast<int>(22), t);	
+
+		ThreadLoops::wait();
+
+		/*std::function<void(int)> t = [&t](int d) {
+			int tmp = d;
+			if (tmp == 3000) {
+				ThreadLoops::terminate();
+				return;
+			}
+
+			std::cout << tmp << std::endl;
+
+			t(tmp+1);
+		};
+
+		t(22);*/
+		
+	}
+
+
+	//{
+	//	using namespace GUI;
+	//	using namespace Event;
+	//	using namespace std;
+
+	//	unordered_set<int> gg;
+	//	gg.insert(3);
+	//	gg.insert(2);
+	//	gg.insert(1);
+	//	gg.insert(10);
+
+	//	class tmp{
+	//	public:
+	//		~tmp() {
+	//			cout << "oh my god!" << endl; //вызовется при удалении
+	//		}
+	//		int dd = 3;
+	//	};
+	//	tmp* lol = new tmp;
+
+	//	DataPack* t = new DataPackCast<std::string>("kek");
+	//	DataPack* t2 = new DataPackCast<int>(22);
+	//	DataPack* t3 = new DataPackCast<float>(22.3);
+	//	DataPack* t4 = new DataPackCast<unordered_set<int>*>(&gg); //работает, но там для вывода код некрасивый
+	//	DataPack* t5 = new DataPackAutoClean<tmp*>(lol);
+
+	//	std::cout << ((DataPackCast<std::string>*)t)->data << endl;
+	//	std::cout << ((DataPackCast<int>*)t2)->data << endl;
+	//	std::cout << ((DataPackCast<float>*)t3)->data << endl;
+	//	std::cout << ((DataPackCast<tmp*>*)t5)->data->dd << endl;
+
+	//	delete t;
+	//	delete t2;
+	//	delete t3;
+	//	delete t4;
+	//	delete t5;
+	//}
+
+	
 
 	/*time_t tt = 0;
 

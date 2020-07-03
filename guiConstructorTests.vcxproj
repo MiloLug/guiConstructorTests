@@ -142,6 +142,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\GUIGL\Components\Event\EventEmitter.cpp" />
     <ClCompile Include="src\GUIGL\common.cpp" />
     <ClCompile Include="src\GUIGL\Components\Container.cpp" />
     <ClCompile Include="src\GUIGL\Components\Style\StyleSetElement.cpp" />
@@ -153,8 +154,12 @@
     <ClCompile Include="src\GUIGL\Components\Style\StyleSetStateMixer.cpp" />
     <ClCompile Include="src\GUIGL\Components\Style\StyleSetAspectMixer.cpp" />
     <ClCompile Include="src\GUIGL\Components\Style\StyleStorage.cpp" />
+    <ClCompile Include="src\GUIGL\Components\Event\ThreadLoops.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\GUIGL\Components\Event\constants.h" />
+    <ClInclude Include="src\GUIGL\Components\Event\DataPack.h" />
+    <ClInclude Include="src\GUIGL\Components\Event\EventEmitter.h" />
     <ClInclude Include="src\GUIGL\common.h" />
     <ClInclude Include="src\GUIGL\Components\Container.h" />
     <ClInclude Include="src\GUIGL\Components\Style\constants.h" />
@@ -166,6 +171,7 @@
     <ClInclude Include="src\GUIGL\Components\Style\StyleSetStateMixer.h" />
     <ClInclude Include="src\GUIGL\Components\Style\StyleSetAspectMixer.h" />
     <ClInclude Include="src\GUIGL\Components\Style\StyleStorage.h" />
+    <ClInclude Include="src\GUIGL\Components\Event\ThreadLoops.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
