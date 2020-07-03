@@ -19,8 +19,13 @@
 #include "GUIGL/Components/Event/DataPack.h"
 
 #include "GUIGL/Components/Event/ThreadLoops.h"
+#include "GUIGL/Components/Event/EventEmitter.h"
 
 #include <string>
+
+#include "GUIGL/common.h"
+
+#include <mutex>
 
 
 /*
@@ -67,6 +72,18 @@
 }
 */
 
+
+GUI::Event::defaultListenerFn_t* fc;
+
+void kek() {
+	int g = 1;
+}
+
+class gg {
+public:
+	int c = 3;
+};
+
 int main() {
 	GUI::Style::StylesStorage::set(".kek")
 		->width(100)
@@ -107,42 +124,119 @@ int main() {
 	std::cout << "left: " << tmp->left(stateMap) << std::endl;
 	std::cout << "zIndex: " << tmp->zIndex(stateMap) << std::endl;
 
-	{
-		using namespace GUI;
-		using namespace Event;
+	/*GUI::Event::init();
 
-		ThreadLoops::init();
-		defaultListenerFn_t t = [&t](DataPack* d) {
-			int tmp = ((DataPackCast<int>*)d)->data;
-			if (tmp == 3000) {
-				ThreadLoops::terminate();
-				return;
-			}
+	std::mutex m;
 
-			std::cout << tmp << std::endl;
+	GUI::Event::on("exit", [&m](GUI::Event::DataPack*) {
+		m.lock();
+		std::cout << "exit!" << std::endl;
+		m.unlock();
+		GUI::Event::terminate();
+	});
 
-			ThreadLoops::addExecutable(new DataPackCast<int>(tmp+1), t);
-		};
+	GUI::Event::on("ggwp", [&m](GUI::Event::DataPack*) {
+		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+		m.lock();
+		std::cout << "kek....1" << std::endl;
+		m.unlock();
+		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+		m.lock();
+		std::cout << "kek....2" << std::endl;
+		m.unlock();
+		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+		m.lock();
+		std::cout << "kek....3" << std::endl;
+		m.unlock();
+		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+		m.lock();
+		std::cout << "kek....4" << std::endl;
+		m.unlock();
+	});
 
-		ThreadLoops::addExecutable(new DataPackCast<int>(22), t);	
+	GUI::Event::on("ggwp", [&m](GUI::Event::DataPack*) {
+		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+		m.lock();
+		std::cout << "lol....1" << std::endl;
+		m.unlock();
+		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+		m.lock();
+		std::cout << "lol....2" << std::endl;
+		m.unlock();
+		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+		m.lock();
+		std::cout << "lol....3" << std::endl;
+		m.unlock();
+		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+		m.lock();
+		std::cout << "lol....4" << std::endl;
+		m.unlock();
+	});
 
-		ThreadLoops::wait();
+	GUI::Event::emit("ggwp");
 
-		/*std::function<void(int)> t = [&t](int d) {
-			int tmp = d;
-			if (tmp == 3000) {
-				ThreadLoops::terminate();
-				return;
-			}
+	std::this_thread::sleep_for(std::chrono::milliseconds(6000));
 
-			std::cout << tmp << std::endl;
+	GUI::Event::emit("ggwp");
 
-			t(tmp+1);
-		};
+	GUI::Event::wait();*/
 
-		t(22);*/
-		
-	}
+	/*std::function<void()> f1 = []() {
+		int i = 1;
+	};
+	std::function<void()> f2 = kek;
+
+
+	std::cout << GUI::compareFn(f1, f2) << std::endl;
+	std::cout << GUI::compareFn(f1, f1) << std::endl;
+	std::cout << GUI::compareFn(f2, f2) << std::endl;
+	std::cout << GUI::compareFn(std::function<void()>(f2), f2) << std::endl;
+
+
+	std::map<int, int> dt;
+
+	dt[2] = 3;
+
+	dt[2]++;
+
+	std::cout << dt[2] << std::endl;*/
+
+	//{
+	//	using namespace GUI;
+	//	using namespace Event;
+
+	//	ThreadLoops::init();
+	//	defaultListenerFn_t t = [&t](DataPack* d) {
+	//		int tmp = ((DataPackCast<int>*)d)->data;
+	//		if (tmp == 3000) {
+	//			ThreadLoops::terminate();
+	//			return;
+	//		}
+
+	//		std::cout << tmp << std::endl;
+
+	//		ThreadLoops::addExecutable(new DataPackCast<int>(tmp+1), t);
+	//	};
+
+	//	ThreadLoops::addExecutable(new DataPackCast<int>(22), t);	
+
+	//	ThreadLoops::wait();
+
+	//	/*std::function<void(int)> t = [&t](int d) {
+	//		int tmp = d;
+	//		if (tmp == 3000) {
+	//			ThreadLoops::terminate();
+	//			return;
+	//		}
+
+	//		std::cout << tmp << std::endl;
+
+	//		t(tmp+1);
+	//	};
+
+	//	t(22);*/
+	//	
+	//}
 
 
 	//{
