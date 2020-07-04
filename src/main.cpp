@@ -19,7 +19,7 @@
 #include "GUIGL/Components/Event/DataPack.h"
 
 #include "GUIGL/Components/Event/ThreadLoops.h"
-#include "GUIGL/Components/Event/EventEmitter.h"
+#include "GUIGL/Components/Event/Emitter.h"
 
 #include <string>
 
@@ -124,63 +124,63 @@ int main() {
 	std::cout << "left: " << tmp->left(stateMap) << std::endl;
 	std::cout << "zIndex: " << tmp->zIndex(stateMap) << std::endl;
 
-	/*GUI::Event::init();
 
+
+	GUI::Event::init();
+
+	
+	struct TmpStruct {
+		int count;
+		std::string id;
+	};
 	std::mutex m;
 
 	GUI::Event::on("exit", [&m](GUI::Event::DataPack*) {
 		m.lock();
 		std::cout << "exit!" << std::endl;
 		m.unlock();
-		GUI::Event::terminate();
+		GUI::Event::terminate(true);
 	});
 
-	GUI::Event::on("ggwp", [&m](GUI::Event::DataPack*) {
-		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-		m.lock();
-		std::cout << "kek....1" << std::endl;
-		m.unlock();
-		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-		m.lock();
-		std::cout << "kek....2" << std::endl;
-		m.unlock();
-		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-		m.lock();
-		std::cout << "kek....3" << std::endl;
-		m.unlock();
-		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-		m.lock();
-		std::cout << "kek....4" << std::endl;
-		m.unlock();
+	GUI::Event::on("tester", [&m](GUI::Event::DataPack* dt) {
+		TmpStruct* tmp = &((GUI::Event::DataPackCast<TmpStruct>*)dt)->data;
+
+		for (int i = 0; i < tmp->count; i++) {
+			std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+			m.lock();
+			std::cout << "test: " << tmp->id << " _ " << i << std::endl;
+			m.unlock();
+		}
 	});
 
-	GUI::Event::on("ggwp", [&m](GUI::Event::DataPack*) {
-		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-		m.lock();
-		std::cout << "lol....1" << std::endl;
-		m.unlock();
-		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-		m.lock();
-		std::cout << "lol....2" << std::endl;
-		m.unlock();
-		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-		m.lock();
-		std::cout << "lol....3" << std::endl;
-		m.unlock();
-		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-		m.lock();
-		std::cout << "lol....4" << std::endl;
-		m.unlock();
-	});
-
-	GUI::Event::emit("ggwp");
+	GUI::Event::emit("tester", new GUI::Event::DataPackCast<TmpStruct>({
+		10,
+		"first"
+	}));
 
 	std::this_thread::sleep_for(std::chrono::milliseconds(6000));
 
-	GUI::Event::emit("ggwp");
+	std::cout << "main thread!" << std::endl;
 
-	GUI::Event::wait();*/
+	GUI::Event::emit("tester", new GUI::Event::DataPackCast<TmpStruct>({
+		6,
+		"second"
+	}));
 
+	std::this_thread::sleep_for(std::chrono::milliseconds(3000));
+
+	GUI::Event::emit("exit");
+
+	GUI::Event::emit("tester", new GUI::Event::DataPackCast<TmpStruct>({
+		6,
+		"third"
+	}));
+
+	GUI::Event::wait();
+
+	std::this_thread::sleep_for(std::chrono::milliseconds(10000));
+
+	std::cout << "main thread!" << std::endl;
 	/*std::function<void()> f1 = []() {
 		int i = 1;
 	};

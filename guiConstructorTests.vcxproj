@@ -142,7 +142,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\GUIGL\Components\Event\EventEmitter.cpp" />
+    <ClCompile Include="src\GUIGL\Components\Event\Emitter.cpp" />
     <ClCompile Include="src\GUIGL\common.cpp" />
     <ClCompile Include="src\GUIGL\Components\Container.cpp" />
     <ClCompile Include="src\GUIGL\Components\Style\StyleSetElement.cpp" />
@@ -157,9 +157,8 @@
     <ClCompile Include="src\GUIGL\Components\Event\ThreadLoops.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\GUIGL\Components\Event\constants.h" />
     <ClInclude Include="src\GUIGL\Components\Event\DataPack.h" />
-    <ClInclude Include="src\GUIGL\Components\Event\EventEmitter.h" />
+    <ClInclude Include="src\GUIGL\Components\Event\Emitter.h" />
     <ClInclude Include="src\GUIGL\common.h" />
     <ClInclude Include="src\GUIGL\Components\Container.h" />
     <ClInclude Include="src\GUIGL\Components\Style\constants.h" />

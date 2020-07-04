@@ -6,6 +6,7 @@
 #include <mutex>
 #include <vector>
 #include <condition_variable>
+#include <atomic>
 
 namespace GUI {
 	namespace Event {
@@ -13,24 +14,28 @@ namespace GUI {
 
 		class ThreadLoops
 		{
-		public:
+		private:
 			typedef std::pair<DataPack*, std::stack<defaultListenerFn_t>> fnPair_t;
-			
+
 			static std::mutex m;
 			static std::stack<fnPair_t*> fnstack;
 			static std::stack<std::thread*> threads;
 			static std::vector<std::mutex*> lockers;
 
-			static std::condition_variable cv;
-
-			static bool stop;
-
+			static std::condition_variable cycleLocker;
+			static std::mutex tm;
+			static std::condition_variable terminator;
+			static int ended;
 
 			static void executor(int id);
 
-			static bool canContinue();
+			static inline bool canContinue();
+			static inline bool canTerminate();
 
 			static bool getExecutable(DataPack*& data, defaultListenerFn_t& fn);
+
+		public:
+			static bool stop;
 
 			static void addExecutable(DataPack* data, const defaultListenerFn_t& fn);
 
@@ -40,11 +45,12 @@ namespace GUI {
 
 			static void addExecutable(DataPack* data, std::vector<defaultListenerFn_t*>& fns);
 
-			static void init(size_t maxThreadsNumber = 2);
+			static void init(size_t threadsNumber);
+			static void init();
 
 			static void wait();
 
-			static void terminate();
+			static void terminate(bool dontWaitFunctions = false);
 		};
 	}
 }

@@ -37,9 +37,10 @@ namespace GUI {
 
 		template<typename T>
 		class DataPackAutoClean : public DataPack {
+		private:
+			int* copyCount = new int;
 		public:
 			T* data;
-			int* copyCount = new int;
 			DataPackAutoClean(T* d) {
 				this->data = d;
 				*this->copyCount = 0;

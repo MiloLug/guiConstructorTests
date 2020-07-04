@@ -12,8 +12,8 @@
     <ClCompile Include="src\GUIGL\Components\Style\StyleSetAspectMixer.cpp" />
     <ClCompile Include="src\GUIGL\Components\Style\StyleStorage.cpp" />
     <ClCompile Include="src\GUIGL\Components\Style\StyleSetElement.cpp" />
-    <ClCompile Include="src\GUIGL\Components\Event\EventEmitter.cpp" />
     <ClCompile Include="src\GUIGL\Components\Event\ThreadLoops.cpp" />
+    <ClCompile Include="src\GUIGL\Components\Event\Emitter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\GUIGL\Elements\Element.h" />
@@ -27,9 +27,8 @@
     <ClInclude Include="src\GUIGL\Components\Style\constants.h" />
     <ClInclude Include="src\GUIGL\Components\Style\StyleStorage.h" />
     <ClInclude Include="src\GUIGL\Components\Style\StyleSetElement.h" />
-    <ClInclude Include="src\GUIGL\Components\Event\EventEmitter.h" />
     <ClInclude Include="src\GUIGL\Components\Event\DataPack.h" />
     <ClInclude Include="src\GUIGL\Components\Event\ThreadLoops.h" />
-    <ClInclude Include="src\GUIGL\Components\Event\constants.h" />
+    <ClInclude Include="src\GUIGL\Components\Event\Emitter.h" />
   </ItemGroup>
 </Project>
