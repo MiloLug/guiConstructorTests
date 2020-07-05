@@ -163,6 +163,7 @@
     <ClInclude Include="src\GUIGL\Components\Container.h" />
     <ClInclude Include="src\GUIGL\Components\Style\constants.h" />
     <ClInclude Include="src\GUIGL\Components\Style\StyleSetElement.h" />
+    <ClInclude Include="src\GUIGL\Components\xxhash.hpp" />
     <ClInclude Include="src\GUIGL\Elements\Element.h" />
     <ClInclude Include="src\GUIGL\Elements\ElementContainer.h" />
     <ClInclude Include="src\GUIGL\Elements\Window.h" />
